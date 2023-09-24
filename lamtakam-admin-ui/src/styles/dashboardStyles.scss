@@ -1,0 +1,140 @@
+@mixin displays($align, $justify, $direction) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+.dashHeader {
+  display: flex;
+  box-shadow: 0 10px 10px #dedede;
+  .navbar {
+    @include displays(center, start, row);
+    a {
+      font-size: 0.8em;
+      color: #222;
+      text-decoration: none;
+      margin-right: 35px;
+    }
+  }
+}
+
+.dashContainer {
+  overflow: auto;
+  max-height: 600px;
+  position: relative;
+  margin-top: 80px;
+  padding: 20px;
+  box-shadow: 1px 1px 20px #eee;
+}
+
+.dashContainer::-webkit-scrollbar {
+  width: 5px;
+}
+.dashContainer::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 3px;
+}
+.dashContainer::-webkit-scrollbar-track {
+  width: 7px;
+  background-color: #888;
+}
+
+.dashCommentBox {
+  @include displays(center, space-around, row);
+  box-shadow: 5px 5px 10px #ddd;
+  padding: 12px;
+  border-radius: 4px;
+}
+.dashCommentInfBox {
+  @include displays(center, space-around, column);
+  span {
+    padding: 5px;
+    font-size: 0.9em;
+  }
+}
+.dashCommentText {
+  word-break: break-all;
+  font-size: 0.8em;
+}
+.dashCol {
+  margin-top: 30px;
+}
+
+.dashCommentFilterBox {
+  @include displays(center, space-between, column);
+  span {
+    transition: all ease-in 0.3s;
+    font-size: 0.7em;
+    cursor: pointer;
+    margin: 25px 0;
+  }
+}
+
+.container_main {
+  @include displays(center, center, row);
+}
+
+.navLinkOn {
+  color: orange;
+}
+
+.noComment {
+  text-align: center;
+  color: crimson;
+  font-size: 0.8em;
+  width: 83.3% !important;
+}
+
+.tableComments {
+  font-size: 0.8em;
+  // width: 82%;
+}
+
+.td {
+  text-align: center;
+  width: 50px;
+}
+
+.tdLast {
+  width: auto;
+  word-break: break-all;
+}
+.checkbox {
+  appearance: none;
+  position: relative;
+  cursor: pointer;
+  padding: 9px;
+  border: 1px dashed #222;
+  &:checked::before {
+    content: "";
+    top: -2px;
+    right: -2px;
+    position: absolute;
+    border: 2px solid #222;
+    padding: 9px;
+  }
+}
+.sendSelectedRowsStyle {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    margin: 0 10px;
+  }
+}
+
+.commentsLoadingSpinnerStyle {
+  @include displays(center, center, column);
+  width: 75%;
+}
+
+
+.pending {
+    color: #000 !important;
+}
+
+.active {
+   color: dodgerblue !important;
+   border-bottom: 2px solid dodgerblue;
+   padding-bottom: 3px;
+}
