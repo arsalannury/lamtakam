@@ -11,16 +11,17 @@ import {
 import { useState, useEffect } from "react";
 import { commentStatusMessages } from "../../helpers/index";
 import "../../styles/dashboardStyles.scss";
-import { NavLink } from "react-router-dom";
+import Header from "../Header/Header";
 
-const Dashboard = () => {
-  const [navLink, setNavLink] = useState("accepted");
-  const [data, setCommentData] = useState([]);
-  const [selectedRow, setSelectedRow] = useState([]);
-  const [commentsLoading, setCommentsLoading] = useState(false);
-  const [sendCommentsLoading, setSendCommentsLoading] = useState(false);
+const Dashboard: React.FC<any> = () => {
+  const [navLink, setNavLink] = useState<string>("accepted");
+  const [data, setCommentData] = useState<any[]>([]);
+  const [selectedRow, setSelectedRow] = useState<any[]>([]);
+  const [commentsLoading, setCommentsLoading] = useState<boolean>(false);
+  const [sendCommentsLoading, setSendCommentsLoading] =
+    useState<boolean>(false);
 
-  const getCommentsByStatus = async (state) => {
+  const getCommentsByStatus = async (state: string) => {
     try {
       setCommentsLoading(true);
       const fetchComments = await fetch(
@@ -29,7 +30,7 @@ const Dashboard = () => {
       const result = await fetchComments.json();
       setCommentData(result.data);
       setCommentsLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setCommentsLoading(false);
       throw error.message;
     }
@@ -51,14 +52,14 @@ const Dashboard = () => {
     }
   };
 
-  const handleSelectRows = (commentObject) => {
+  const handleSelectRows = (commentObject: any) => {
     const instanceOfState = [...selectedRow];
     instanceOfState.push(commentObject);
     console.log(instanceOfState);
     setSelectedRow(instanceOfState);
   };
 
-  const handleUnSelectRows = (commentObject) => {
+  const handleUnSelectRows = (commentObject: any) => {
     const instanceOfState = [...selectedRow];
     const findIndexOfSelectedObject = selectedRow.findIndex(
       (row) => row._id === commentObject._id
@@ -119,7 +120,7 @@ const Dashboard = () => {
                           <td className="td">
                             {comment.status === "notAccepted" ? (
                               <input
-                                onInput={(event) => {
+                                onInput={(event: any) => {
                                   event.target.checked
                                     ? handleSelectRows(comment)
                                     : handleUnSelectRows(comment);
@@ -176,35 +177,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="dashHeader">
-        <img src="/mainlogo.svg" alt="logo" width={120} height={130} />
-        <div className="navbar">
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            to={"/blog-create-view"}
-          >
-            ایجاد بلاگ جدید
-          </NavLink>
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            to={"/category-create"}
-          >
-            ایجاد دسته بندی
-          </NavLink>
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-            to={"/"}
-          >
-            پنل ادمین
-          </NavLink>
-        </div>
-      </div>
+      <Header />
       <Container className="dashContainer" fluid="sm">
         <Row className="justify-content-start position-relative">
           <Col xl={2} className="position-sticky right-0 top-0">
