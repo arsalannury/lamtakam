@@ -9,7 +9,7 @@ import "../../styles/createBlogStyles.scss";
 
 const BlogCreateView = () => {
   const editorRef: any = useRef();
-  const { CKEditor, ClassicEditor, Editor } = editorRef.current;
+  const { CKEditor, ClassicEditor, Editor } = editorRef.current || {};
   const [editorLoad, setEditorLoad] = useState(false);
   const [blogContent, setBlogContent] = useState("<p></p>");
   const [category, setCategory] = useState([]);
@@ -31,8 +31,8 @@ const BlogCreateView = () => {
   useEffect(() => {
     editorRef.current = {
       CKEditor: require("@ckeditor/ckeditor5-react").CKEditor,
-      ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
-      // Editor: require("ckeditor5-custom-build/build/ckeditor"),
+      // ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
+      Editor: (require("ckeditor5-custom-build/build/ckeditor") as any),
     };
     setEditorLoad(true);
 
@@ -86,7 +86,11 @@ const BlogCreateView = () => {
     const validSize =
       file.size == 0 ? 0 : Math.floor(Math.log(file.size) / Math.log(1024));
     
-    return ((file.size / Math.pow(1024, validSize)).toFixed(2) * 1 + " " + ["B", "kB", "MB", "GB", "TB"][validSize])
+    return (
+      (file.size / Math.pow(1024, validSize) as any).toFixed(2) * 1 +
+      " " +
+      ["B", "kB", "MB", "GB", "TB"][validSize]
+    );
     
   };
 
@@ -140,8 +144,8 @@ const BlogCreateView = () => {
                 ],
               },
             }}
-            editor={ClassicEditor}
-            // editor={Editor}
+            // editor={ClassicEditor}
+            editor={Editor}
             data={blogContent}
             onReady={(editor: any) => {
               // console.log("CKEditor5 React Component is ready to use!", editor);
