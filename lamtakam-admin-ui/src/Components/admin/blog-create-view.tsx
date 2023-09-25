@@ -6,6 +6,7 @@ import Select from "react-select";
 import { CategoryStyles } from "../../helpers/Toast/CategoryOptions";
 import { global_getBase64 } from "../../helpers/index";
 import "../../styles/createBlogStyles.scss";
+import Header from "../Header/Header";
 
 const BlogCreateView = () => {
   const editorRef: any = useRef();
@@ -32,7 +33,7 @@ const BlogCreateView = () => {
     editorRef.current = {
       CKEditor: require("@ckeditor/ckeditor5-react").CKEditor,
       // ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
-      Editor: (require("ckeditor5-custom-build/build/ckeditor") as any),
+      Editor: require("ckeditor5-custom-build/build/ckeditor") as any,
     };
     setEditorLoad(true);
 
@@ -85,13 +86,12 @@ const BlogCreateView = () => {
   const getFileSizeInValidFormat = (file: File) => {
     const validSize =
       file.size == 0 ? 0 : Math.floor(Math.log(file.size) / Math.log(1024));
-    
+
     return (
-      (file.size / Math.pow(1024, validSize) as any).toFixed(2) * 1 +
+      ((file.size / Math.pow(1024, validSize)) as any).toFixed(2) * 1 +
       " " +
       ["B", "kB", "MB", "GB", "TB"][validSize]
     );
-    
   };
 
   const getFileBlob = async (file: File) => {
@@ -117,10 +117,10 @@ const BlogCreateView = () => {
         داره ذخیره میشه صبر کن لطفا...
       </div>
       <Toaster position="top-center" />
-      <div className="blogCreateHeader">ایجاد بلاگ</div>
-      <Form.Group className="m-3" controlId="formBasicEmail">
-        <Form.Label title="title-label">عنوان</Form.Label>
+      <Header />
+      <Form.Group className="mx-auto my-5 w-50 " controlId="formBasicEmail">
         <Form.Control
+          size="sm"
           value={title}
           onChange={(event: any) => {
             setTitle(event.target.value);
