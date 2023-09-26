@@ -22,7 +22,7 @@ function Header() {
             }
             to={"/category-create"}
           >
-            ایجاد دسته بندی
+             دسته بندی
           </NavLink>
           <NavLink
             className={({ isActive, isPending }) =>

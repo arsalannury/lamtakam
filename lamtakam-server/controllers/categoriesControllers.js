@@ -28,3 +28,19 @@ exports.get_all_category = async (req, res, next) => {
     });
   }
 };
+
+exports.remove_category = async (req, res, next) => {
+  const { id } = req.body.params;
+  try {
+    await categoryModel.findByIdAndDelete(id);
+    res.status(204).json({
+      status: "success",
+      message: "category removed",
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "fail",
+      message: error.message,
+    });
+  }
+};

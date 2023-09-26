@@ -38,6 +38,7 @@ const BlogCreateView = () => {
     setEditorLoad(true);
 
     getCategories();
+    return () => {}
   }, []);
 
   async function createBlog() {
@@ -202,7 +203,7 @@ const BlogCreateView = () => {
           </div>
         </>
       ) : (
-        <h1 style={{ textAlign: "center", margin: "100px" }}>صبر کن دادا</h1>
+        <h1 style={{ textAlign: "center", margin: "100px" }}></h1>
       )}
     </>
   );
