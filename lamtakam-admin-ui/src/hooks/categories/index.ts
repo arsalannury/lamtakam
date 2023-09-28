@@ -16,6 +16,12 @@ const postCategories = async (value: string) => {
   });
 };
 
+const deleteCategories = async (categoryId: any) => {
+  await fetch(`http://127.0.0.1:8000/categories/${categoryId}`, {
+    method: "DELETE",
+  });
+};
+
 export const useGetCategories: Function = (): UseQueryResult<any, unknown> => {
   return useQuery("GET_CATEGORIES", fetchCategories, {
     staleTime: 50000,
@@ -25,6 +31,24 @@ export const useGetCategories: Function = (): UseQueryResult<any, unknown> => {
 export const usePostCategories: Function = (): any => {
   const queryClient = useQueryClient();
   return useMutation(postCategories, {
+    onMutate: () => {
+      const previousData = queryClient.getQueryData("GET_CATEGORIES");
+      return { previousData };
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries("GET_CATEGORIES");
+      renderHowToast("عملیات با موفقیت انجام شد", "success");
+    },
+    onError: (_error, data, context: any) => {
+      queryClient.setQueryData("GET_CATEGORIES", context.previousData);
+      renderHowToast("عملیات با خطا مواجه شد", "error");
+    },
+  });
+};
+
+export const useDeleteCategory: Function = () => {
+  const queryClient = useQueryClient();
+  return useMutation(deleteCategories, {
     onMutate: () => {
       const previousData = queryClient.getQueryData("GET_CATEGORIES");
       return { previousData };
