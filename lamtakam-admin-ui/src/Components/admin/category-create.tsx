@@ -73,9 +73,9 @@ const CategoryCreate = () => {
                   );
                 })
               ) : (
-                <div>
-                  <p>اطلاعاتی جهت نمایش یافت نشد</p>
-                </div>
+              
+                  <p className='not-found-data'>اطلاعاتی جهت نمایش یافت نشد</p>
+               
               )}
             </div>
           </>
