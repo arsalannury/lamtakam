@@ -102,7 +102,7 @@ const BlogCreateView = () => {
       setFileUploaded(null);
       return;
     }
-    const toBase64 = await global_getBase64(file);
+    const toBase64: any = await global_getBase64(file);
     setBlogImg(toBase64);
     setFileName(file.name);
   };
