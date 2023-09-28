@@ -1,8 +1,46 @@
 .container-div {
   padding: 20px;
+  width: 50%;
+  margin: auto;
   margin-top: 50px;
+  background-color: goldenrod;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.category-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .remove-icon,
+  .edit-icon {
+    transition: all ease-in 0.5s;
+    width: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .category-name {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+    margin-top: 25px;
+    font-weight: bold;
+    position: relative;
+  }
+}
 .input {
   margin: 10px 40px 10px 20px;
   outline: none;

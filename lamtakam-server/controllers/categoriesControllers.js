@@ -30,7 +30,7 @@ exports.get_all_category = async (req, res, next) => {
 };
 
 exports.remove_category = async (req, res, next) => {
-  const { id } = req.body.params;
+  const { id } = req.params;
   try {
     await categoryModel.findByIdAndDelete(id);
     res.status(204).json({

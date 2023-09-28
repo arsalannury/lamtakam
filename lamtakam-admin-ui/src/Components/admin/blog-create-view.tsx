@@ -38,7 +38,7 @@ const BlogCreateView = () => {
     setEditorLoad(true);
 
     getCategories();
-    return () => {}
+    return () => {};
   }, []);
 
   async function createBlog() {
@@ -56,7 +56,7 @@ const BlogCreateView = () => {
     }
 
     try {
-      await fetch("https://lamtakam-server.iran.liara.run//blogs", {
+      await fetch("http://127.0.0.1:8000/blogs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
