@@ -2,12 +2,14 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 import { UseQueryResult } from "react-query/types/react";
 import { renderHowToast } from "src/helpers/Toast/ToastNotif";
 
+//* api call function start *************************************************** 
+ 
 const fetchCategories = async (): Promise<any> => {
   const request = await fetch("http://127.0.0.1:8000/categories");
   return await request.json();
 };
 
-const postCategories = async (value: string) => {
+const postCategories = async (value: string): Promise<Response | undefined> => {
   if (!value || (value && value.trim().length <= 0)) return;
   return await fetch("http://127.0.0.1:8000/categories", {
     method: "POST",
@@ -16,11 +18,16 @@ const postCategories = async (value: string) => {
   });
 };
 
-const deleteCategories = async (categoryId: any) => {
+const deleteCategories = async (categoryId: any): Promise<void> => {
   await fetch(`http://127.0.0.1:8000/categories/${categoryId}`, {
     method: "DELETE",
   });
 };
+
+//* api call function end ***************************************************
+
+
+//* custom hooks start *************************************************** 
 
 export const useGetCategories: Function = (): UseQueryResult<any, unknown> => {
   return useQuery("GET_CATEGORIES", fetchCategories, {
@@ -63,3 +70,5 @@ export const useDeleteCategory: Function = () => {
     },
   });
 };
+
+//* custom hooks end *************************************************** 
