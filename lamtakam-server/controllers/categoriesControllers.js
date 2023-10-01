@@ -44,3 +44,29 @@ exports.remove_category = async (req, res, next) => {
     });
   }
 };
+
+exports.update_category = async (req, res, next) => {
+  const { id } = req.params;
+  const body = req.body;
+  try {
+    await categoryModel.findByIdAndUpdate(
+      id,
+      {
+        category: {
+          value: body.category.value,
+          label: body.category.label,
+        },
+      },
+      { runValidators: true }
+    );
+    return res.status(201).json({
+      status: "success",
+      message: "data updated",
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "failed",
+      message: error.message,
+    });
+  }
+};

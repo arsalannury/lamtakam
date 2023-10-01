@@ -24,6 +24,25 @@ const deleteCategories = async (categoryId: any): Promise<void> => {
   });
 };
 
+const updateCategories = async (categoryValue: any): Promise<void> => {
+  if (!categoryValue || (categoryValue && categoryValue.trim().length <= 0))
+    return;
+  
+  const categories = await fetchCategories(); 
+  const filterCategoryShouldBeUpdate = categories.data.find((cat: any) => cat);
+ 
+  await fetch(
+    `http://127.0.0.1:8000/categories/${filterCategoryShouldBeUpdate._id}`,
+    {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        category: { value: categoryValue, label: categoryValue },
+      }),
+    }
+  );
+};
+
 //* api call function end ***************************************************
 
 
@@ -70,5 +89,23 @@ export const useDeleteCategory: Function = () => {
     },
   });
 };
+
+export const useUpdateCategory = () => {
+  const queryClient = useQueryClient();
+  return useMutation(updateCategories, {
+    onMutate: () => {
+      const previousData = queryClient.getQueryData("GET_CATEGORIES");
+      return { previousData };
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries("GET_CATEGORIES");
+      renderHowToast("عملیات با موفقیت انجام شد", "success");
+    },
+    onError: (_error, data, context: any) => {
+      queryClient.setQueryData("GET_CATEGORIES", context.previousData);
+      renderHowToast("عملیات با خطا مواجه شد", "error");
+    },
+  });
+}
 
 //* custom hooks end *************************************************** 
