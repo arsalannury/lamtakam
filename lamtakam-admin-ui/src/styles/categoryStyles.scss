@@ -9,6 +9,13 @@
   justify-content: start;
   flex-direction: column;
   overflow-y: auto;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.container-box {
+  background-color: #fff;
+  z-index: 100;
 }
 
 .not-found-data {
@@ -51,7 +58,7 @@
   padding: 9px 20px;
 }
 .input:focus {
-  box-shadow: 0 0 15px #fff;
+  box-shadow: 0 0 15px #ddd;
 }
 
 .saveBtn {
@@ -67,4 +74,13 @@
 .cancel-icon {
   margin-right: 10px;
   cursor: pointer;
+}
+
+.bottom-wave {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  opacity: .5;
 }

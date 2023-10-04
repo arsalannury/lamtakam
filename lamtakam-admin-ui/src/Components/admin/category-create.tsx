@@ -48,6 +48,7 @@ const CategoryCreate = () => {
                 className="input"
               />
               <button
+                disabled={catVal.trim().length === 0}
                 className="saveBtn"
                 onClick={(event) => {
                   isUpdateMode
@@ -73,7 +74,7 @@ const CategoryCreate = () => {
                 />
               )}
             </div>
-            <div className="container-fluid">
+            <div className="container-fluid container-box">
               {/* {createPortal(
                 <p className="position-absolute w-100 top-0 bottom-0 right-0 left-0 bg-secondary ">This child is placed in the document body.</p>,
                 document.body
@@ -116,6 +117,7 @@ const CategoryCreate = () => {
           </>
         )}
       </div>
+      <img alt="wave" src="bottomWave.svg" className="bottom-wave" />
     </>
   );
 };
