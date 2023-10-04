@@ -1,27 +1,24 @@
+@import "_variables.scss";
+@import "_base.scss";
+
 .container-div {
+  @include display(center, start, column);
   padding: 20px;
   width: 50%;
   margin: auto;
   margin-top: 50px;
   max-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: $white-color;
   z-index: 100;
 
   .container-box {
-    background-color: #fff;
+    background-color: $white-color;
     z-index: 100;
 
     .category-name-container {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      border-bottom: 1px dashed dodgerblue;
-      // width: max-content;
+      @include display(center, flex-start, row);
+      border-bottom: 1px dashed $blue-root-project;
 
       .remove-icon,
       .edit-icon {
@@ -54,11 +51,11 @@
     margin: 10px 40px 10px 20px;
     outline: none;
     border-radius: 5px;
-    border: 1px dashed #333;
+    border: 1px dashed $dark-gray-color;
     padding: 9px 20px;
   }
   .input:focus {
-    box-shadow: 0 0 15px #ddd;
+    box-shadow: 0 0 15px $light-gray-color;
   }
 
   .saveBtn {
@@ -66,8 +63,8 @@
     border-radius: 5px;
     border: none;
     padding: 9px 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: $dark-gray-color;
+    color: $white-color;
     transition: all 0.2s ease-in;
   }
 
