@@ -25,7 +25,7 @@
   position: relative;
   margin-top: 80px;
   padding: 20px;
-  box-shadow: 1px 1px 20px #eee;
+  // box-shadow: 1px 1px 20px #eee;
 }
 
 .dashContainer::-webkit-scrollbar {
@@ -88,17 +88,30 @@
 
 .tableComments {
   font-size: 0.8em;
+  margin-top: 50px;
   // width: 82%;
+  .th-table {
+    font-size: 0.8em;
+  }
+  tbody {
+    tr {
+      td {
+        text-align: right;
+      }
+    }
+  }
 }
 
 .td {
   text-align: center;
-  width: 50px;
+  padding: 30px 0 !important;
+  // width: 50px;
 }
 
 .tdLast {
   width: auto;
   word-break: break-all;
+  vertical-align: middle;
 }
 .checkbox {
   appearance: none;
@@ -128,13 +141,12 @@
   width: 75%;
 }
 
-
 .pending {
-    color: #000 !important;
+  color: #000 !important;
 }
 
 .active {
-   color: dodgerblue !important;
-   border-bottom: 2px solid dodgerblue;
-   padding-bottom: 3px;
+  color: dodgerblue !important;
+  border-bottom: 2px solid dodgerblue;
+  padding-bottom: 3px;
 }

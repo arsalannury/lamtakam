@@ -7,6 +7,8 @@ import {
   Spinner,
   Table,
   Button,
+  Tabs,
+  Tab,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { commentStatusMessages } from "../../helpers/index";
@@ -21,7 +23,7 @@ const Dashboard: React.FC<any> = () => {
   const [sendCommentsLoading, setSendCommentsLoading] =
     useState<boolean>(false);
 
-  const getCommentsByStatus = async (state: string) => {
+  const getCommentsByStatus = async (state: string | null) => {
     try {
       setCommentsLoading(true);
       const fetchComments = await fetch(
@@ -55,7 +57,6 @@ const Dashboard: React.FC<any> = () => {
   const handleSelectRows = (commentObject: any) => {
     const instanceOfState = [...selectedRow];
     instanceOfState.push(commentObject);
-    console.log(instanceOfState);
     setSelectedRow(instanceOfState);
   };
 
@@ -101,72 +102,68 @@ const Dashboard: React.FC<any> = () => {
             </div>
           ) : (
             <>
-              <Col xl={10}>
-                <Table striped bordered hover className="tableComments">
-                  <thead>
-                    <tr>
-                      <th>ردیف</th>
-                      <th>تعیین وضعیت</th>
-                      <th>زمان ایجاد</th>
-                      <th>ایجاد کننده</th>
-                      <th>متن دیدگاه</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.map((comment, index) => (
-                      <>
-                        <tr>
-                          <td className="td">{index + 1}</td>
-                          <td className="td">
-                            {comment.status === "notAccepted" ? (
-                              <input
-                                onInput={(event: any) => {
-                                  event.target.checked
-                                    ? handleSelectRows(comment)
-                                    : handleUnSelectRows(comment);
-                                }}
-                                className="checkbox"
-                                type="checkbox"
-                              />
-                            ) : (
-                              <Badge bg="success">
-                                {commentStatusMessages(comment.status)}
-                              </Badge>
-                            )}
-                          </td>
-                          <td className="td">
-                            {new Date(comment.created_at).toLocaleString(
-                              "fa-ir"
-                            )}
-                          </td>
-                          <td className="td">{comment.created_by}</td>
-                          <td className="tdLast">{comment.content}</td>
-                        </tr>
-                      </>
-                    ))}
-                  </tbody>
-                </Table>
-                {navLink === "notAccepted" && (
-                  <div className="sendSelectedRowsStyle">
-                    <Button
-                      onClick={() => acceptComments()}
-                      disabled={selectedRow && selectedRow.length <= 0}
-                      size="sm"
-                      variant="outline-success"
-                    >
-                      تایید موارد انتخاب شده
-                    </Button>
-                    <Button
-                      onClick={() => handleDeleteComment()}
-                      disabled={selectedRow && selectedRow.length <= 0}
-                      size="sm"
-                      variant="outline-success"
-                    >
-                      حذف موارد انتخاب شده
-                    </Button>
-                  </div>
-                )}
-              </Col>
+              <Table className="tableComments table-sm me-2">
+                <thead>
+                  <tr>
+                    <th className="th">ردیف</th>
+                    <th className="th">تعیین وضعیت</th>
+                    <th className="th">زمان ایجاد</th>
+                    <th className="th">ایجاد کننده</th>
+                    <th className="th">متن دیدگاه</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((comment, index) => (
+                    <>
+                      <tr>
+                        <td className="td">{index + 1}</td>
+                        <td className="td">
+                          {comment.status === "notAccepted" ? (
+                            <input
+                              onInput={(event: any) => {
+                                event.target.checked
+                                  ? handleSelectRows(comment)
+                                  : handleUnSelectRows(comment);
+                              }}
+                              className="checkbox"
+                              type="checkbox"
+                            />
+                          ) : (
+                            <Badge bg="success">
+                              {commentStatusMessages(comment.status)}
+                            </Badge>
+                          )}
+                        </td>
+                        <td className="td">
+                          {new Date(comment.created_at).toLocaleString("fa-ir")}
+                        </td>
+                        <td className="td">{comment.created_by}</td>
+                        <td className="tdLast">{comment.content}</td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </Table>
+              {navLink === "notAccepted" && (
+                <div className="sendSelectedRowsStyle">
+                  <Button
+                    onClick={() => acceptComments()}
+                    disabled={selectedRow && selectedRow.length <= 0}
+                    size="sm"
+                    variant="outline-success"
+                  >
+                    تایید موارد انتخاب شده
+                  </Button>
+                  <Button
+                    onClick={() => handleDeleteComment()}
+                    disabled={selectedRow && selectedRow.length <= 0}
+                    size="sm"
+                    variant="outline-success"
+                  >
+                    حذف موارد انتخاب شده
+                  </Button>
+                </div>
+              )}
             </>
           )}
         </>
@@ -178,32 +175,20 @@ const Dashboard: React.FC<any> = () => {
   return (
     <>
       <Header />
-      <Container className="dashContainer" fluid="sm">
+      <Container className="dashContainer" fluid>
         <Row className="justify-content-start position-relative">
-          <Col xl={2} className="position-sticky right-0 top-0">
-            <div className="dashCommentFilterBox">
-              <p>نظرات کاربران</p>
-              <span
-                onClick={() => {
-                  setNavLink("accepted");
-                  getCommentsByStatus("accepted");
-                }}
-                className={navLink === "accepted" ? "navLinkOn" : ""}
-              >
-                تایید شده
-              </span>
-              <span
-                onClick={() => {
-                  setNavLink("notAccepted");
-                  getCommentsByStatus("notAccepted");
-                }}
-                className={navLink === "notAccepted" ? "navLinkOn" : ""}
-              >
-                تایید نشده
-              </span>
-            </div>
+          <Col xl={6}>
+            <Tabs
+              id="controlled-tab-example"
+              activeKey={"key"}
+              onSelect={(k) => getCommentsByStatus(k)}
+              className="mb-3 p-3 "
+            >
+              <Tab className="" eventKey="accepted" title="تایید شده"></Tab>
+              <Tab className="" eventKey="noAaccepted" title="تایید نشده"></Tab>
+            </Tabs>
+            {renderComments()}
           </Col>
-          {renderComments()}
         </Row>
       </Container>
     </>
