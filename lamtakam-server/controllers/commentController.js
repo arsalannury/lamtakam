@@ -96,11 +96,35 @@ exports.delete_comment = async (req, res, next) => {
 exports.getBlogComments = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const getBlogsComments = await CommentsModel.find({ blogId: id, status:'accepted' });
+    const getBlogsComments = await CommentsModel.find({
+      blogId: id,
+      status: "accepted",
+    });
 
     res.status(200).json({
       status: "success",
       data: getBlogsComments,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "failed",
+      message: error.message,
+    });
+  }
+};
+
+exports.getCommentsCount = async (req, res, next) => {
+  try {
+    const getComments = await CommentsModel.find().select("status");
+    const accepted = getComments.filter(
+      (comment) => comment.status === "accepted"
+    );
+    const notAccepted = getComments.filter(
+      (comment) => comment.status === "notAccepted"
+    );
+    res.status(200).json({
+      status: "success",
+      data: [accepted, notAccepted],
     });
   } catch (error) {
     res.status(500).json({
