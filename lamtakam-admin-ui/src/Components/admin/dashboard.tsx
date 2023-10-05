@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import { commentStatusMessages } from "../../helpers/index";
 import "../../styles/dashboardStyles.scss";
 import Header from "../Header/Header";
+import CommentsCount from "../Charts/CommentsCount";
 
 const Dashboard: React.FC<any> = () => {
   const [navLink, setNavLink] = useState<string>("accepted");
@@ -182,12 +183,19 @@ const Dashboard: React.FC<any> = () => {
               id="controlled-tab-example"
               activeKey={"key"}
               onSelect={(k) => getCommentsByStatus(k)}
-              className="mb-3 p-3 "
+              className="mb-3 p-3"
             >
+              <Tab disabled eventKey="comments" title="نظرات کاربران"></Tab>
               <Tab className="" eventKey="accepted" title="تایید شده"></Tab>
               <Tab className="" eventKey="noAaccepted" title="تایید نشده"></Tab>
             </Tabs>
             {renderComments()}
+          </Col>
+          <Col
+            className="d-flex align-items-center justify-content-center"
+            xl={6}
+          >
+            <CommentsCount />
           </Col>
         </Row>
       </Container>
