@@ -119,63 +119,48 @@ const BlogCreateView = () => {
       </div>
       <Toaster position="top-center" />
       <Header />
-      <Form.Group className="mx-auto my-5 w-50 " controlId="formBasicEmail">
-        <Form.Control
-          size="sm"
-          value={title}
-          onChange={(event: any) => {
-            setTitle(event.target.value);
-          }}
-          type="email"
-          placeholder="عنوان بلاگ"
-        />
-      </Form.Group>
-      {editorLoad ? (
-        <>
-          <CKEditor
-            title="editor"
-            config={{
-              image: {
-                toolbar: [
-                  "imageTextAlternative",
-                  "toggleImageCaption",
-                  "imageStyle:inline",
-                  "imageStyle:block",
-                  "imageStyle:side",
-                ],
-              },
+      <div
+        className="container-lg shadow-lg p-5 my-5 overflow-auto container-blog"
+        style={{ maxHeight: "700px" }}
+      >
+        <Form.Group className=" mt-5 mb-2 w-50 " controlId="formBasicEmail">
+          <Form.Control
+            size="sm"
+            value={title}
+            onChange={(event: any) => {
+              setTitle(event.target.value);
             }}
-            // editor={ClassicEditor}
-            editor={Editor}
-            data={blogContent}
-            onReady={(editor: any) => {
-              // console.log("CKEditor5 React Component is ready to use!", editor);
-            }}
-            onChange={(event: any, editor: any) => {
-              const data = editor.getData();
-              setBlogContent(data);
-              // console.log({ event, editor, data });
-            }}
+            type="email"
+            placeholder="عنوان بلاگ"
           />
-          <div title="file-upload-wrapper" className="fileUploadWrapper">
-            <label title="file-upload-label" className="fileUploadLabel">
-              {fileName && fileName.length > 0 ? fileName : "انتخاب عکس بلاگ"}
-              <input
-                title="input-upload"
-                onChange={(event: any) => {
-                  setFileUploaded(event.target.files[0]);
-                  getFileBlob(event.target.files[0]);
-                }}
-                type="file"
-                name="blog-image"
-              />
-            </label>
-            <p>
-              حجم فایل بارگزاری شده:{" "}
-              {fileUploaded ? getFileSizeInValidFormat(fileUploaded) : "0"}
-            </p>
-          </div>
-          <div className="blogCategoryWrapper">
+        </Form.Group>
+        {editorLoad ? (
+          <>
+            <CKEditor
+              title="editor"
+              config={{
+                image: {
+                  toolbar: [
+                    "imageTextAlternative",
+                    "toggleImageCaption",
+                    "imageStyle:inline",
+                    "imageStyle:block",
+                    "imageStyle:side",
+                  ],
+                },
+              }}
+              // editor={ClassicEditor}
+              editor={Editor}
+              data={blogContent}
+              onReady={(editor: any) => {
+                // console.log("CKEditor5 React Component is ready to use!", editor);
+              }}
+              onChange={(event: any, editor: any) => {
+                const data = editor.getData();
+                setBlogContent(data);
+                // console.log({ event, editor, data });
+              }}
+            />
             <Select
               onChange={(event: any) => {
                 setCategory(event);
@@ -189,22 +174,43 @@ const BlogCreateView = () => {
               styles={CategoryStyles}
               placeholder="دسته بندی"
               options={validCategory}
-              className="basic-multi-select"
+              className="basic-multi-select my-2"
               classNamePrefix="select"
             />
-            <Button
-              className="sendBtn"
-              onClick={createBlog}
-              variant="outline-success"
-              title="send-btn"
-            >
-              {saveLoading ? "در حال ثبت" : "ارسال بلاگ"}
-            </Button>
-          </div>
-        </>
-      ) : (
-        <h1 style={{ textAlign: "center", margin: "100px" }}></h1>
-      )}
+            <div title="file-upload-wrapper" className="fileUploadWrapper">
+              <label title="file-upload-label" className="fileUploadLabel">
+                {fileName && fileName.length > 0 ? fileName : "انتخاب عکس بلاگ"}
+                <input
+                  title="input-upload"
+                  onChange={(event: any) => {
+                    setFileUploaded(event.target.files[0]);
+                    getFileBlob(event.target.files[0]);
+                  }}
+                  type="file"
+                  name="blog-image"
+                />
+              </label>
+              <p>
+                حجم فایل بارگزاری شده:{" "}
+                {fileUploaded ? getFileSizeInValidFormat(fileUploaded) : "0"}
+              </p>
+            </div>
+            <div className="blogCategoryWrapper">
+              <Button
+                className="sendBtn"
+                onClick={createBlog}
+                variant="outline-success"
+                title="send-btn"
+              >
+                {saveLoading ? "در حال ثبت" : "ارسال بلاگ"}
+              </Button>
+            </div>
+          </>
+        ) : (
+          <h1 style={{ textAlign: "center", margin: "100px" }}></h1>
+        )}
+      </div>
+      <img alt="wave" src="bottomWave.svg" className="bottom-wave" />
     </>
   );
 };

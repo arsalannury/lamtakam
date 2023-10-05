@@ -1,3 +1,7 @@
+@import "_variables.scss";
+@import "_base.scss";
+
+
 @mixin displayes(
   $display,
   $justifyContent,
@@ -10,17 +14,23 @@
   flex-wrap: $flexWrap;
 }
 
+.container-blog {
+  z-index: 10;
+  position: relative;
+  background-color: $white-color;
+}
+
 .blogCreateHeader {
   width: 100%;
   margin-bottom: 20px;
   padding: 15px;
-  background-color: #333;
-  color: #fff;
-  box-shadow: 0 2px 8px #ccc;
+  background-color: $dark-gray-color;
+  color: $white-color;
+  box-shadow: 0 2px 8px $light-grey-color;
 }
 
 .blogCategoryWrapper {
-  @include displayes(flex, center, wrap, center);
+  @include displayes(flex, flex-end, wrap, center);
   margin: 50px 0;
   .sendBtn {
     margin-right: 10px;
@@ -42,7 +52,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  color: darkblue;
+  color: $dark-blue-color;
 }
 .blogCreateBackdropHidden {
   display: none;
@@ -51,18 +61,16 @@
 .fileUploadWrapper p {
   text-align: right;
   font-size: 0.7em;
-  color: darkred;
-  width: 70%;
+  color: $dark-red-color;
 }
 
 .fileUploadWrapper {
   flex-direction: column;
-  @include displayes(flex, center, nowrap, center);
+  @include displayes(flex, center, nowrap, flex-start);
   .fileUploadLabel {
     flex-direction: column;
     @include displayes(flex, center, nowrap, center);
-    width: 70%;
-    margin: 30px;
+    margin: 30px 0 30px 30px;
     cursor: pointer;
     padding: 15px;
     border: 2px dotted #34fc;
