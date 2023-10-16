@@ -1,0 +1,19 @@
+.helpText {
+  text-align: center;
+  margin: 35px 0;
+  font-size: 0.9em;
+}
+
+.notFoundImageWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.linkStyle {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: inherit;
+  }
+}

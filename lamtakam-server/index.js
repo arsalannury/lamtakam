@@ -6,7 +6,7 @@ const blogRoute = require("./routes/blog_route");
 const requestIp = require("request-ip");
 const categoriesRoute = require("./routes/categories_route");
 const blogIdsRoute = require("./routes/blog_ids_route");
-const commentsroute = require('./routes/comment_route');
+const commentsroute = require("./routes/comment_route");
 
 dotenv.config({ path: "./config.env" });
 const corsConfig = {
@@ -34,7 +34,7 @@ app.use(requestIp.mw());
 app.use(cors(corsConfig));
 app.use("/blogs", blogRoute);
 app.use("/categories", categoriesRoute);
-app.use('/blogIds', blogIdsRoute);
+app.use("/blogIds", blogIdsRoute);
 app.use("/comments", commentsroute);
 
 module.exports = app;

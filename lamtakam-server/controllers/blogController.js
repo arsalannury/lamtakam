@@ -19,6 +19,7 @@ exports.get_blogs = async (req, res, next) => {
   const findAllDataByCondition = await BlogsModel.find()
     .limit(10)
     .select("title blogImg category created_at");
+
   res.status(200).json({
     status: "success",
     data: findAllDataByCondition,

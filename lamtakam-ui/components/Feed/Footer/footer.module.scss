@@ -1,0 +1,19 @@
+.footerContainer {
+  // position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background-image: linear-gradient(
+    to right,
+    rgb(202, 138, 4),
+    rgb(220, 38, 38)
+  );
+  p {
+    font-size: 0.8em;
+    color: #fff;
+  }
+}

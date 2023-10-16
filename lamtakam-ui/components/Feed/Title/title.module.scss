@@ -1,0 +1,61 @@
+.titleContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  padding-top: 60px;
+  .wrapperContent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .circleLogo {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    opacity: 0.5;
+    animation: circle 6s ease-in-out infinite backwards;
+  }
+  .hello {
+    margin-bottom: 25px;
+  }
+  h1 {
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  .quoteImage {
+    position: absolute;
+    transform: rotate(-40deg);
+    top: 35px;
+    left: -25px;
+  }
+}
+
+@keyframes circle {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .titleContainer {
+    padding-top: 120px;
+    h1 {
+      font-size: 1em;
+    }
+    .quoteImage {
+      width: 25px !important;
+      height: 25px !important;
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .titleContainer {
+    padding-top: 170px;
+  }
+}

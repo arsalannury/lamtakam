@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 600px;
+  overflow-y: hidden;
+  background: gold;
+  .signInGithubBtn {
+    margin-top: 100px;
+  }
+  .footer {
+    margin-top: 100px;
+    text-align: center;
+  }
+}

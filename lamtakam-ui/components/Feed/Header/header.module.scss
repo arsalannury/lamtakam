@@ -1,0 +1,87 @@
+@mixin displayes(
+  $display,
+  $justifyContent,
+  $flexWrap: wrap,
+  $alignItems: center
+) {
+  display: $display;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-wrap: $flexWrap;
+}
+
+.headerContainer {
+  @include displayes(flex, space-between, nowrap);
+  width: 100%;
+  .headerLogoSection {
+    @include displayes(flex, space-evenly, nowrap, center);
+    span {
+      margin-left: -25px;
+    }
+  }
+  .navbar {
+    @include displayes(flex, space-around, nowrap);
+    list-style-type: none;
+    margin-right: 50px;
+    margin-bottom: 0;
+    .navbarLink {
+      text-decoration: none;
+      color: unset;
+      margin: 0 8px;
+      transition: all 0.2s ease-in;
+    }
+    li {
+      border-radius: 5px;
+      transition: all 0.2s ease-in;
+      padding: 10px 20px;
+      &:hover {
+        background-color: #222;
+        color: #fff;
+        box-shadow: 0 5px 6px #aaa;
+      }
+    }
+  }
+}
+
+.navbarMobile {
+  @include displayes(flex, space-around, nowrap, center);
+  list-style-type: none;
+  text-align: right;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  .navbarLinkMobile {
+    text-decoration: none;
+    color: unset;
+    transition: all 0.2s ease-in;
+    li {
+      transition: all 0.2s ease-in;
+      margin: 35px 0;
+    }
+  }
+  .logoImageMobile {
+    margin: 60px 0 0 0;
+  }
+  .navbarMobileTitle {
+    text-align: center;
+    font-weight: bold;
+    color: #222;
+    font-style: italic;
+    text-shadow: 0 2px 5px #eee;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .hurgerMenuCustom {
+    display: unset;
+  }
+  .headerContainer {
+    display: none;
+  }
+}
+@media screen and (min-width: 750px) {
+  .hurgerMenuCustom {
+    display: none;
+  }
+}
