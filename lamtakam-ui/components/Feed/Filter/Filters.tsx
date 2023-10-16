@@ -18,7 +18,7 @@ const Filters: React.FC<IProps> = ({ categories, handleFilterData }) => {
 
   return (
     <>
-      <div className={styles.filterWrapper}>
+      <div className=" flex items-center justify-end">
         {filterShow && (
           <Select
             onChange={(event: any) => {

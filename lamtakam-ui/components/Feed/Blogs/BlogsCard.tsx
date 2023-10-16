@@ -53,13 +53,13 @@ const BlogsCard: React.FC<IProps> = ({ blogs, categories }) => {
   return (
     <>
       <Filters handleFilterData={handleFilterData} categories={validCategory} />
-      <div className="flex items-center justify-center flex-wrap sm:justify-normal">
+      <div className="flex items-center flex-wrap sm:justify-around p-5">
         {blogs &&
           blogs.map((blog) => {
             return (
               <>
                 <div
-                  className="sm:w-[456px] sm:max-w-[456px] mx-[30px] my-[0] rounded-[0.479rem]
+                  className="sm:w-[456px] sm:max-w-[456px] mx-[30px]  rounded-[0.479rem] my-5
                   border-2 border-solid transition-all hover:shadow-lg"
                   key={blog._id}
                 >
@@ -99,7 +99,6 @@ const BlogsCard: React.FC<IProps> = ({ blogs, categories }) => {
                         :زمان انتشار
                       </span>
                     </p>
-                    {/* <p>{parse(blog.content)}</p> */}
                     <div className="flex items-center justify-end flex-wrap mt-[25px]">
                       {blog &&
                         blog.category.map((cat: any) => (

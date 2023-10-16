@@ -6,20 +6,16 @@ const BlogsCard = dynamic(() => import("../components/Feed/Blogs/BlogsCard"), {
   ssr: false,
 });
 
-export const revalidate = 5000;
 
 export default async function Home() {
-  const blogsData = await fetch("http://lamtakam-server.iran.liara.run/blogs", {
-    cache: "force-cache",
+  const blogsData = await fetch("http://127.0.0.1:8000/blogs", {
+    cache: "no-cache",
   });
   const validJsonData = await blogsData.json();
 
-  const categoryData = await fetch(
-    "http://lamtakam-server.iran.liara.run/categories",
-    {
-      cache: "force-cache",
-    }
-  );
+  const categoryData = await fetch("http://127.0.0.1:8000/categories", {
+    cache: "no-cache",
+  });
   const validCatJsonData = await categoryData.json();
 
   return (
