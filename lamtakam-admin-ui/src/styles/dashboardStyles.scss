@@ -6,7 +6,6 @@
 }
 
 .dashHeader {
-  display: flex;
   box-shadow: 0 10px 10px #dedede;
   .navbar {
     @include displays(center, start, row);
@@ -141,7 +140,16 @@
   width: 75%;
 }
 
+.navbar-exapnd-menu {
+  a {
+  width: max-content;
+  text-decoration: none;
+  margin: 30px 0;
+  }
+}
+
 .pending {
+
   color: #000 !important;
 }
 

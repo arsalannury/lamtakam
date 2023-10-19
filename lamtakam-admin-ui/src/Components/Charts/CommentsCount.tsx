@@ -82,7 +82,7 @@ const CommentsCount: React.FC<any> = () => {
   }, []);
 
   return (
-    <div style={{ width: "500px" }}>
+    <div style={{ width: "500px", overflow: "auto" }}>
       <canvas id="acquisitions"></canvas>
     </div>
   );

@@ -181,7 +181,7 @@ const Dashboard: React.FC<any> = () => {
               id="controlled-tab-example"
               activeKey={"key"}
               onSelect={(k) => getCommentsByStatus(k)}
-              className="mb-3 p-3"
+              className="mb-3 p-3 flex-sm-row flex-column align-items-center"
             >
               <Tab disabled eventKey="comments" title="نظرات کاربران"></Tab>
               <Tab className="" eventKey="accepted" title="تایید شده"></Tab>
