@@ -18,7 +18,7 @@ const Filters: React.FC<IProps> = ({ categories, handleFilterData }) => {
 
   return (
     <>
-      <div className=" flex items-center justify-end">
+      <div className=" flex items-center justify-end mr-3">
         {filterShow && (
           <Select
             onChange={(event: any) => {

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Filters from "../Filter/Filters";
 import { Category } from "@/types";
+import { BlurDataUrlBase64 } from "@/components/helpers/publicDocs/BlurDataUrlBase64";
 
 interface IProps {
   blogs: any[];
@@ -53,23 +54,26 @@ const BlogsCard: React.FC<IProps> = ({ blogs, categories }) => {
   return (
     <>
       <Filters handleFilterData={handleFilterData} categories={validCategory} />
-      <div className="flex items-center flex-wrap sm:justify-around p-5">
+      <div className="flex items-center flex-wrap max-sm:justify-center justify-around p-5">
         {blogs &&
           blogs.map((blog) => {
             return (
               <>
                 <div
-                  className="sm:w-[456px] sm:max-w-[456px] mx-[30px]  rounded-[0.479rem] my-5
-                  border-2 border-solid transition-all hover:shadow-lg"
+                  className="w-[456px] mx-[30px] rounded-[0.479rem] my-5
+                  border-2 border-solid transition-all hover:shadow-xl shadow-lg"
                   key={blog._id}
                 >
                   <Image
-                    className="border-b-2 border-solid rounded-ss-md rounded-se-md"
+                    objectFit="cover"
+                    blurDataURL={BlurDataUrlBase64.BLOG_BLUR}
+                    placeholder="blur"
+                    className="border-b-2 border-solid rounded-ss-md rounded-se-md h-[300px]"
                     style={{ color: "unset" }}
                     alt="blog-image"
                     width={452}
                     height={300}
-                    quality={30}
+                    quality={100}
                     src={blog.blogImg ? blog.blogImg : "/empty"}
                   />
                   <div>
