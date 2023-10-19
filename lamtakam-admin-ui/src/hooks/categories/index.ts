@@ -5,13 +5,15 @@ import { renderHowToast } from "src/helpers/Toast/ToastNotif";
 //* api call function start *************************************************** 
  
 const fetchCategories = async (): Promise<any> => {
-  const request = await fetch("http://127.0.0.1:8000/categories");
+  const request = await fetch(
+    "https://lamtakam-server.iran.liara.run/categories"
+  );
   return await request.json();
 };
 
 const postCategories = async (value: string): Promise<Response | undefined> => {
   if (!value || (value && value.trim().length <= 0)) return;
-  return await fetch("http://127.0.0.1:8000/categories", {
+  return await fetch("https://lamtakam-server.iran.liara.run/categories", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ category: { value: value, label: value } }),
@@ -19,9 +21,12 @@ const postCategories = async (value: string): Promise<Response | undefined> => {
 };
 
 const deleteCategories = async (categoryId: any): Promise<void> => {
-  await fetch(`http://127.0.0.1:8000/categories/${categoryId}`, {
-    method: "DELETE",
-  });
+  await fetch(
+    `https://lamtakam-server.iran.liara.run/categories/${categoryId}`,
+    {
+      method: "DELETE",
+    }
+  );
 };
 
 const updateCategories = async (categoryValue: any): Promise<void> => {
@@ -32,7 +37,7 @@ const updateCategories = async (categoryValue: any): Promise<void> => {
   const filterCategoryShouldBeUpdate = categories.data.find((cat: any) => cat);
  
   await fetch(
-    `http://127.0.0.1:8000/categories/${filterCategoryShouldBeUpdate._id}`,
+    `https://lamtakam-server.iran.liara.run/${filterCategoryShouldBeUpdate._id}`,
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

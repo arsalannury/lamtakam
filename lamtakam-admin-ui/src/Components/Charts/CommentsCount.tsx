@@ -5,7 +5,9 @@ const CommentsCount: React.FC<any> = () => {
   const [chartData, setChartData] = useState([]);
 
   const renderChart = async () => {
-    const request = await fetch("http://localhost:8000/comments/counts");
+    const request = await fetch(
+      "https://lamtakam-server.iran.liara.run/comments/counts"
+    );
     const comments = await request.json();
 
     const image = new Image();

@@ -21,7 +21,9 @@ const BlogCreateView = () => {
   const [validCategory, setValidCategory] = useState([]);
 
   const getCategories = async () => {
-    const getCategories = await fetch("http://127.0.0.1:8000/categories");
+    const getCategories = await fetch(
+      "https://lamtakam-server.iran.liara.run/categories"
+    );
     const validCats = await getCategories.json();
     const mapCategoryObj =
       validCats && validCats.data.map((obj: any) => obj.category);
@@ -55,7 +57,7 @@ const BlogCreateView = () => {
     }
 
     try {
-      await fetch("http://127.0.0.1:8000/blogs", {
+      await fetch("https://lamtakam-server.iran.liara.run/blogs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

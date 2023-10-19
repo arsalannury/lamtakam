@@ -27,7 +27,7 @@ const Dashboard: React.FC<any> = () => {
     try {
       setCommentsLoading(true);
       const fetchComments = await fetch(
-        `http://127.0.0.1:8000/comments?status=${state}`
+        `https://lamtakam-server.iran.liara.run/comments?status=${state}`
       );
       const result = await fetchComments.json();
       setCommentData(result.data);
@@ -41,7 +41,7 @@ const Dashboard: React.FC<any> = () => {
   const acceptComments = async () => {
     try {
       setSendCommentsLoading(true);
-      await fetch("http://127.0.0.1:8000/comments", {
+      await fetch("https://lamtakam-server.iran.liara.run/comments", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(selectedRow),
@@ -74,7 +74,7 @@ const Dashboard: React.FC<any> = () => {
   const handleDeleteComment = async () => {
     try {
       setSendCommentsLoading(true);
-      await fetch("http://127.0.0.1:8000/comments", {
+      await fetch("https://lamtakam-server.iran.liara.run/comments", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(selectedRow),
