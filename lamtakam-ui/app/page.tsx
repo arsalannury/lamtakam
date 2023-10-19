@@ -6,16 +6,21 @@ const BlogsCard = dynamic(() => import("../components/Feed/Blogs/BlogsCard"), {
   ssr: false,
 });
 
-
 export default async function Home() {
-  const blogsData = await fetch("https://lamtakam-server.iran.liara.run/blogs", {
-    cache: "no-cache",
-  });
+  const blogsData = await fetch(
+    "https://lamtakam-server.iran.liara.run/blogs",
+    {
+      cache: "no-cache",
+    }
+  );
   const validJsonData = await blogsData.json();
 
-  const categoryData = await fetch("https://lamtakam-server.iran.liara.run/categories", {
-    cache: "no-cache",
-  });
+  const categoryData = await fetch(
+    "https://lamtakam-server.iran.liara.run/categories",
+    {
+      cache: "no-cache",
+    }
+  );
   const validCatJsonData = await categoryData.json();
 
   return (

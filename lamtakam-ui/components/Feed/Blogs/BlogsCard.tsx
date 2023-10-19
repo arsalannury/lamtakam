@@ -32,7 +32,6 @@ const BlogsCard: React.FC<IProps> = ({ blogs, categories }) => {
   }
 
   useEffect(() => {
-    // setShowBlogCard(true);
     setFilterableData(blogs);
   }, []);
 
@@ -65,10 +64,9 @@ const BlogsCard: React.FC<IProps> = ({ blogs, categories }) => {
                   key={blog._id}
                 >
                   <Image
-                    objectFit="cover"
                     blurDataURL={BlurDataUrlBase64.BLOG_BLUR}
                     placeholder="blur"
-                    className="border-b-2 border-solid rounded-ss-md rounded-se-md h-[300px]"
+                    className="border-b-2 border-solid rounded-ss-md rounded-se-md h-[300px] object-cover"
                     style={{ color: "unset" }}
                     alt="blog-image"
                     width={452}
