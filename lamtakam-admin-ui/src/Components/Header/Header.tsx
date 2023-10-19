@@ -4,7 +4,6 @@ import "../../styles/dashboardStyles.scss";
 
 function Header() {
   return (
-    <>
       <div className="dashHeader">
         <img src="/mainlogo.svg" alt="logo" width={120} height={130} />
         <div className="navbar">
@@ -22,7 +21,7 @@ function Header() {
             }
             to={"/category-create"}
           >
-             دسته بندی
+            دسته بندی
           </NavLink>
           <NavLink
             className={({ isActive, isPending }) =>
@@ -34,7 +33,6 @@ function Header() {
           </NavLink>
         </div>
       </div>
-    </>
   );
 }
 

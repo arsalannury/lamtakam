@@ -6,7 +6,6 @@ import Select from "react-select";
 import { CategoryStyles } from "../../helpers/Toast/CategoryOptions";
 import { global_getBase64 } from "../../helpers/index";
 import "../../styles/createBlogStyles.scss";
-import Header from "../Header/Header";
 
 const BlogCreateView = () => {
   const editorRef: any = useRef();
@@ -118,7 +117,6 @@ const BlogCreateView = () => {
         داره ذخیره میشه صبر کن لطفا...
       </div>
       <Toaster position="top-center" />
-      <Header />
       <div
         className="container-lg shadow-lg p-5 my-5 overflow-auto container-blog"
         style={{ maxHeight: "700px" }}

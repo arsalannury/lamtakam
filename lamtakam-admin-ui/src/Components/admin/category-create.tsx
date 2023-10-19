@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import "../../styles/categoryStyles.scss";
-import Header from "../Header/Header";
 import { Spinner } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
 import {
@@ -28,7 +27,6 @@ const CategoryCreate = () => {
   return (
     <>
       <Toaster />
-      <Header />
       <div className="container-div shadow-lg">
         {categoryLoading || categoryIsRefetch ? (
           <Spinner
