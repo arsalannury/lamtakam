@@ -4,7 +4,7 @@ import App from "./App";
 import SSRProvider from "react-bootstrap/SSRProvider";
 import "./styles/index.css";
 import { BrowserRouter } from "react-router-dom";
-import { QueryClientProvider, QueryClient } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const queryClient = new QueryClient();

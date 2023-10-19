@@ -5,6 +5,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^36.0.1",
     "@ckeditor/ckeditor5-react": "^5.1.0",
+    "@tanstack/react-query": "^5.0.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -20,7 +21,6 @@
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
-    "react-query": "3.19",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.5",
