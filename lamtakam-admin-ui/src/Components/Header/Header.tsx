@@ -53,6 +53,7 @@ function Header() {
                   پنل ادمین
                 </NavLink>
               </Nav>
+              <img src="lamtakamtext.png" alt="text lamtakam" width={350} />
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

@@ -36,7 +36,7 @@ const CategoryCreate = () => {
           />
         ) : (
           <>
-            <div>
+            <div className="cat-elements">
               <input
                 onChange={(event) => setCatVal(event.target.value)}
                 value={catVal}
