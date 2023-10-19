@@ -13,7 +13,6 @@ import {
 import { useState, useEffect } from "react";
 import { commentStatusMessages } from "../../helpers/index";
 import "../../styles/dashboardStyles.scss";
-import Header from "../Header/Header";
 import CommentsCount from "../Charts/CommentsCount";
 
 const Dashboard: React.FC<any> = () => {
@@ -175,7 +174,6 @@ const Dashboard: React.FC<any> = () => {
 
   return (
     <>
-      <Header />
       <Container className="dashContainer" fluid>
         <Row className="justify-content-start position-relative">
           <Col xl={6}>
