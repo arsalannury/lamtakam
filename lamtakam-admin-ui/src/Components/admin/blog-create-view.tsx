@@ -9,7 +9,7 @@ import "../../styles/createBlogStyles.scss";
 
 const BlogCreateView = () => {
   const editorRef: any = useRef();
-  const { CKEditor, ClassicEditor,Editor } = editorRef.current || {};
+  const { CKEditor, ClassicEditor, Editor } = editorRef.current || {};
   const [editorLoad, setEditorLoad] = useState(false);
   const [blogContent, setBlogContent] = useState("<p></p>");
   const [category, setCategory] = useState([]);
@@ -123,7 +123,7 @@ const BlogCreateView = () => {
         className="container-lg shadow-lg p-5 my-5 overflow-auto container-blog"
         style={{ maxHeight: "700px" }}
       >
-        <Form.Group className=" mt-5 mb-2 w-50 " controlId="formBasicEmail">
+        <Form.Group className=" mt-5 mb-2 w-[100%] " controlId="formBasicEmail">
           <Form.Control
             size="sm"
             value={title}
