@@ -102,7 +102,7 @@ const Dashboard: React.FC<any> = () => {
             </div>
           ) : (
             <>
-              <Table className="tableComments table-sm me-2">
+              <Table className="tableComments table-sm me-2"> 
                 <thead>
                   <tr>
                     <th className="th">ردیف</th>
