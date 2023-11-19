@@ -33,8 +33,8 @@ const BlogCreateView = () => {
   useEffect(() => {
     editorRef.current = {
       CKEditor: require("@ckeditor/ckeditor5-react").CKEditor,
-      ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
-      // Editor: require("ckeditor5-custom-build/build/ckeditor") as any,
+      // ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
+      Editor: require("ckeditor5-custom-build/build/ckeditor") as any,
     };
     setEditorLoad(true);
 
@@ -149,8 +149,8 @@ const BlogCreateView = () => {
                   ],
                 },
               }}
-              editor={ClassicEditor}
-              // editor={Editor}
+              // editor={ClassicEditor}
+              editor={Editor}
               data={blogContent}
               onReady={(editor: any) => {
                 // console.log("CKEditor5 React Component is ready to use!", editor);
