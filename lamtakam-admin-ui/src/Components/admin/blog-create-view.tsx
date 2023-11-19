@@ -123,7 +123,7 @@ const BlogCreateView = () => {
         className="container-lg shadow-lg p-5 my-5 overflow-auto container-blog"
         style={{ maxHeight: "700px" }}
       >
-        <Form.Group className=" mt-5 mb-2 w-50 " controlId="formBasicEmail">
+        <Form.Group className=" mt-5 mb-2 w-[100%] " controlId="formBasicEmail">
           <Form.Control
             size="sm"
             value={title}
