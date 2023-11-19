@@ -10,7 +10,7 @@ function Header() {
   const [expanded, setExpanded] = useState<boolean>(false);
   return (
     <div className="dashHeader">
-      <Navbar expand="sm" className="bg-body-tertiary mb-3 mr-auto">
+      <Navbar expand={false} className="bg-body-tertiary mb-3 mr-auto">
         <Container fluid>
           <img src="/mainlogo.svg" alt="logo" width={120} height={130} />
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${false}`} />
