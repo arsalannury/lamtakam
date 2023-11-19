@@ -27,7 +27,7 @@ const CategoryCreate = () => {
   return (
     <>
       <Toaster />
-      <div className="container-div shadow-lg">
+      <div className="container-div">
         {categoryLoading || categoryIsRefetch ? (
           <Spinner
             style={{ margin: "auto" }}
