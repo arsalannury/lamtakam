@@ -120,7 +120,7 @@ const BlogCreateView = () => {
       </div>
       <Toaster position="top-center" />
       <div
-        className="container-lg shadow-lg p-5 my-5 overflow-auto container-blog"
+        className="container-fluid p-5 my-5 overflow-auto container-blog"
         style={{ maxHeight: "700px" }}
       >
         <Form.Group className=" mt-5 mb-2 w-[100%] " controlId="formBasicEmail">
