@@ -183,8 +183,19 @@ const Dashboard: React.FC<any> = () => {
               onSelect={(k) => getCommentsByStatus(k)}
               className="mb-3 p-3 flex-sm-row flex-column align-items-center"
             >
-              <Tab disabled eventKey="comments" title="نظرات کاربران"></Tab>
-              <Tab className="" eventKey="accepted" title="تایید شده"></Tab>
+              <Tab
+                disabled
+                className=""
+                eventKey="comments"
+                tabClassName="fs-6"
+                title="نظرات کاربران"
+              ></Tab>
+              <Tab
+                className=""
+                eventKey="accepted"
+                tabClassName="fs-6"
+                title="تایید شده"
+              ></Tab>
               <Tab className="" eventKey="noAaccepted" title="تایید نشده"></Tab>
             </Tabs>
             {renderComments()}

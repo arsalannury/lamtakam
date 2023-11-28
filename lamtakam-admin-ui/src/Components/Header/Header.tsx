@@ -12,7 +12,7 @@ function Header() {
     <div className="dashHeader">
       <Navbar expand={false} className="bg-body-tertiary mb-3 mr-auto">
         <Container fluid>
-          <img src="/mainlogo.svg" alt="logo" width={120} height={130} />
+          <img src="/mainlogo.svg" alt="logo" width={120} height={90} />
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${false}`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${false}`}

@@ -6,7 +6,7 @@
 }
 
 .dashHeader {
-  box-shadow: 0 10px 10px #dedede;
+  box-shadow: 0 1px 10px #dedede;
   .navbar {
     @include displays(center, start, row);
     a {

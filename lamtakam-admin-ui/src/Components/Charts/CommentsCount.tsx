@@ -69,7 +69,7 @@ const CommentsCount: React.FC<any> = () => {
           legend: {
             labels: {
               font: {
-                size: 14,
+                size: 11,
                 family: "SansIran",
               },
             },
