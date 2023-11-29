@@ -11,7 +11,7 @@ const loading = () => {
         height={140}
       />
 
-      <div className="animate-pulse text-center w-[100%] h-[700px] overflow-y-hidden bg-[gold] overflow-hidden text-xl text-white flex items-center justify-center max-sm:text-sm">
+      <div className="animate-pulse text-center w-[100%] h-[700px] overflow-y-hidden bg-[#e7e7e7] overflow-hidden text-xl text-white flex items-center justify-center max-sm:text-sm">
         درحال بارگذاری محتوی هستیم لطفا چند لحظه صبر کنید
       </div>
     </div>

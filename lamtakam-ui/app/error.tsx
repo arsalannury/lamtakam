@@ -33,7 +33,6 @@ const Error = ({ error, reset }: ErrorType) => {
           <ul className="list-none flex items-center justify-between flex-col text-justify text-white">
             <li>اتصال خود به اینترنت را بررسی نمایید</li>
             <li>صفحه را دوباره بروز رسانی کنید</li>
-            <li>مشکل پیش آمده را به پشتیبانی اطلاع دهید</li>
             <li>support.lamtakam@gmail.com</li>
           </ul>
           <p className="my-4 text-white font-bold">{error.message}</p>

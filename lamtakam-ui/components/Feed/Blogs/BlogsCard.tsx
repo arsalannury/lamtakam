@@ -59,17 +59,17 @@ const BlogsCard: React.FC<IProps> = ({ blogs, categories }) => {
             return (
               <>
                 <div
-                  className="w-[456px] mx-[30px] rounded-[0.479rem] my-5
-                  border-2 border-solid transition-all hover:shadow-xl shadow-lg"
+                  className="w-[350px] mx-[30px] rounded-[0.479rem] my-5
+                  border border-solid transition-all hover:shadow-xl shadow-lg"
                   key={blog._id}
                 >
                   <Image
                     blurDataURL={BlurDataUrlBase64.BLOG_BLUR}
                     placeholder="blur"
-                    className="border-b-2 border-solid rounded-ss-md rounded-se-md h-[300px] object-cover"
-                    style={{ color: "unset" }}
+                    className="rounded-ss-md rounded-se-md h-[300px] object-cover"
+                    style={{ color: "unset", borderBottom: "1px solid" }}
                     alt="blog-image"
-                    width={452}
+                    width={350}
                     height={300}
                     quality={100}
                     src={blog.blogImg ? blog.blogImg : "/empty"}

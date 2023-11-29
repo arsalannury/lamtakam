@@ -13,14 +13,14 @@ export default async function Home() {
       cache: "no-cache",
     }
   );
-  const validJsonData = await blogsData.json();
-
   const categoryData = await fetch(
     "https://lamtakam-server.iran.liara.run/categories",
     {
       cache: "no-cache",
     }
   );
+
+  const validJsonData = await blogsData.json();
   const validCatJsonData = await categoryData.json();
 
   return (
