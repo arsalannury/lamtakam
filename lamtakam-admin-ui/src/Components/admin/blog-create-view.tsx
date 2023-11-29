@@ -120,7 +120,7 @@ const BlogCreateView = () => {
       </div>
       <Toaster position="top-center" />
       <div
-        className="container-fluid p-5 my-5 overflow-auto container-blog"
+        className="container-fluid my-5 overflow-auto container-blog"
         style={{ maxHeight: "700px" }}
       >
         <Form.Group className=" mt-5 mb-2 w-[100%] " controlId="formBasicEmail">
@@ -210,7 +210,7 @@ const BlogCreateView = () => {
           <h1 style={{ textAlign: "center", margin: "100px" }}></h1>
         )}
       </div>
-      <img alt="wave" src="bottomWave.svg" className="bottom-wave" />
+      {/* <img alt="wave" src="bottomWave.svg" className="bottom-wave" /> */}
     </>
   );
 };
