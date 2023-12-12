@@ -1,11 +1,11 @@
-import React from 'react';
-import { useRouter } from 'next/navigation';
+import React from "react";
 
 const BlogDetail = async () => {
-     
   return (
-    <div>BlogDetail</div>
-  )
-}
+    <>
+      <BlogDetail />
+    </>
+  );
+};
 
 export default BlogDetail;
